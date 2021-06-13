@@ -25,7 +25,7 @@ Route::get('pocket/new', 'PocketController@addForm');
 
 
 
-Route::post('api/v1/pockets', 'PocketController@store');
+Route::post('api/v1/pockets/{id}/contents', 'ContentController@store');
 
 /*Route::get('{any}', function () {
     return view('app');
