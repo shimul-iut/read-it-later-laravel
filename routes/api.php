@@ -43,7 +43,7 @@ Route::post('login', 'AuthController@login');
             return new PocketResource(Pocket::findOrFail($id));
         });
 
-        Route::post('pockets/{id}/contents', 'ContentController@store');
+        //Route::post('pockets/{id}/contents', 'ContentController@store');
 
         
         Route::get('/contents', function () {
