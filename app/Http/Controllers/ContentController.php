@@ -38,12 +38,17 @@ class ContentController extends Controller
                 'content_excerpt' => ''
             ]         
         );
+        
         $contentID = $content->id;
-        //dispatch(new WebCrawler($content->id));
-        event(new NewContentURLAdded($contentID));
-        return back()->with('success', 'Content created successfully.');
+        dispatch(new WebCrawler($content->id));
+        /**
+         * I tried to discpatch the above JOB from below Event Listener, But somehow could not make it work.
+         * Therefore, I amd dispatching the Web scrapper Job directly from the Controller after the URL is stored.
+         */
 
-        //return new ContentResource($content);
+        //event(new NewContentURLAdded($contentID));
+        
+        return back()->with('success', 'Content created successfully.');
     }
 
     /**
