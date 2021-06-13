@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +15,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('pockets');
 });
+
+Route::get('pockets', 'PocketController@index');
+Route::get('create-new-content/{pocketID}', 'ContentController@index');
+Route::get('pocket/show', 'PocketController@show');
+Route::get('pocket/new', 'PocketController@addForm');
+
+
+
+//Route::post('api/v1/pockets', 'PocketController@store');
+
+/*Route::get('{any}', function () {
+    return view('app');
+})->where('any', '.*');
+
+//Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+*/
+
+
+
